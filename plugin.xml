@@ -13,11 +13,4 @@
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml" />
     </platform>
-    <platform name="ios">
-        <config-file parent="/*" target="config.xml">
-            <feature name="Trapeze">
-                <param name="ios-package" value="Trapeze" />
-            </feature>
-        </config-file>
-    </platform>
 </plugin>
