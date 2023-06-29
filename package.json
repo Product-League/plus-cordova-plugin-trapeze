@@ -1,0 +1,39 @@
+{
+  "name": "Trapeze",
+  "version": "0.0.1",
+  "description": "Template of a cordova plugin with some OutSystems driven examples",
+  "scripts": {
+    "init-repo": "test -d .git && test -d .githooks && git config core.hooksPath .githooks",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "cordova": {
+    "id": "cordova-plugin-trapeze",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:agoncalvesos/cordova-plugin-trapeze.git"
+  },
+  "keywords": [
+    "cordova",
+    "outsystems"
+  ],
+  "standard-version": {
+    "commitAll": true,
+    "message": "chore(release): raise version to %s",
+    "tag-prefix": "",
+    "skip": {
+      "changelog": true
+    }
+  },
+  "author": "OutSystems",
+  "homepage": "https://github.com:agoncalvesos/cordova-plugin-trapeze#readme",
+  "dependencies": {
+    "@trapezedev/configure": "^7.0.8",
+    "xmldom": "^0.6.0",
+    "xpath": "^0.0.32"
+  }
+}
