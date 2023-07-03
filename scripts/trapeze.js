@@ -5,7 +5,7 @@ const fs = require('fs');
 const logger = require('cordova-common').CordovaLogger.get();
 const { execSync } = require("child_process");
 const ExtendedConfigParser = require('./utils/extendedConfigParser');
-
+const utils = require("./utils/utils");
 
 const PREFERENCE_NAME_SUFFIX = 'TrapezeConf'
 
@@ -22,9 +22,10 @@ module.exports = function (context) {
     const preferenceValue = parser
         .getPreference(PREFERENCE_NAME_SUFFIX, platform);
 
-
+    ;
     // Look for a trapeze-platform.yaml file in the root of the platform directory
-    const yamlPath = path.join('platforms', platform, 'trapeze-conf.yaml');
+    let yamlPath = path.join(context.opts.projectRoot, "platforms", platform, "app", 'trapeze-conf.yaml')
+    
     const alternativeYamlPath = path.join('www','trapeze-conf.yaml');
     if (preferenceValue) {
         try {
