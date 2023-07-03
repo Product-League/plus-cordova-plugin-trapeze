@@ -29,7 +29,7 @@ module.exports = function(context) {
   const sourceFolderPath = utils.getSourceFolderPath(context, wwwPath);
   const trapezeZipFile = utils.getZipFile(sourceFolderPath, constants.trapezeConf);
   if (!trapezeZipFile) {
-    throw new Error("No configuration zip file found (notificare-services-zip).");
+    throw new Error("No configuration zip file found (trapeze-conf.zip).");
   }
 
   const zip = new AdmZip(trapezeZipFile);

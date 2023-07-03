@@ -36,17 +36,16 @@ const constants = {
   
   function getSourceFolderPath(context, wwwPath) {
     let sourceFolderPath;
-    const appId = getAppId(context);
     const cordovaAbove7 = isCordovaAbove(context, 7);
   
     console.log("cordovaAbove7: " + cordovaAbove7);
   
     // New way of looking for the configuration files' folder
     if (cordovaAbove7) {
-      sourceFolderPath = path.join(context.opts.projectRoot, "www", appId + constants.folderNameSuffix);
+      sourceFolderPath = path.join(context.opts.projectRoot, "www", constants.folderNameSuffix);
       console.log("Using #1 sourceFolderPath: " + sourceFolderPath);
     } else {
-      sourceFolderPath = path.join(wwwPath, appId + constants.folderNameSuffix);
+      sourceFolderPath = path.join(wwwPath, constants.folderNameSuffix);
       console.log("Using #2 sourceFolderPath: " + sourceFolderPath);
     }
   
@@ -54,10 +53,10 @@ const constants = {
     if(!checkIfFolderExists(sourceFolderPath)) {
       console.log("Using deprecated way to look for configuration files' folder");
       if (cordovaAbove7) {
-        sourceFolderPath = path.join(context.opts.projectRoot, "www", constants.folderNamePrefix + appId);
+        sourceFolderPath = path.join(context.opts.projectRoot, "www", constants.folderNamePrefix);
         console.log("Using #3 sourceFolderPath: " + sourceFolderPath);
       } else {
-        sourceFolderPath = path.join(wwwPath, constants.folderNamePrefix + appId);
+        sourceFolderPath = path.join(wwwPath, constants.folderNamePrefix);
         console.log("Using #4 sourceFolderPath: " + sourceFolderPath);
       }
     }
@@ -97,21 +96,6 @@ const constants = {
     }
   }
   
-  function getAppId(context) {
-    const cordovaAbove8 = isCordovaAbove(context, 8);
-    let et;
-    if (cordovaAbove8) {
-      et = require('elementtree');
-    } else {
-      et = context.requireCordovaModule('elementtree');
-    }
-  
-    const config_xml = path.join(context.opts.projectRoot, 'config.xml');
-    const data = fs.readFileSync(config_xml).toString();
-    const etree = et.parse(data);
-    return etree.getroot().attrib.id;
-  }
-  
   function isCordovaAbove(context, version) {
     const cordovaVersion = context.opts.cordova.version;
     console.log(cordovaVersion);
@@ -140,7 +124,6 @@ const constants = {
     getZipFile,
     getResourcesFolderPath,
     getPlatformConfigs,
-    getAppId,
     copyFromSourceToDestPath,
     getFilesFromPath,
     createOrCheckIfFolderExists,
