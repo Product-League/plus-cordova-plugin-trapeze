@@ -5,7 +5,7 @@
     <name>Trapeze</name>
     <hook type="before_plugin_install" src="scripts/installDependencies.js" />
     <hook type="before_plugin_install" src="scripts/unzipAndCopyTrapezeConf.js" />
-    
+
     <hook type="after_plugin_install" src="scripts/fixConfigXml.js" />
     <hook type="before_build" src="scripts/trapeze.js" />
     <platform name="android">
@@ -15,5 +15,12 @@
             </feature>
         </config-file>
         <config-file parent="/*" target="AndroidManifest.xml" />
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="Trapeze">
+                <param name="ios-package" value="Trapeze" />
+            </feature>
+        </config-file>
     </platform>
 </plugin>
