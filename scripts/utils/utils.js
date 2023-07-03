@@ -11,8 +11,8 @@ const constants = {
       trapezeFileExtension: ".yaml"
     },
     zipExtension: ".zip",
-    folderNameSuffix: ".trapeze",
-    folderNamePrefix: "trapeze."
+    folderNameSuffix: "trapeze",
+    folderNamePrefix: "trapeze"
   };
 
   function handleError(errorMessage, defer) {
