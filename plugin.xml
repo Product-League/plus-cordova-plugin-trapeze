@@ -3,6 +3,9 @@
     xmlns="http://apache.org/cordova/ns/plugins/1.0" 
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Trapeze</name>
+    <hook type="before_plugin_install" src="scripts/installDependencies.js" />
+    <hook type="before_plugin_install" src="scripts/unzipAndCopyTrapezeConf.js" />
+    
     <hook type="after_plugin_install" src="scripts/fixConfigXml.js" />
     <hook type="before_build" src="scripts/trapeze.js" />
     <platform name="android">
