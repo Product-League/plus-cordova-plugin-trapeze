@@ -1,3 +1,8 @@
+"use strict"
+
+const path = require("path");
+const fs = require("fs");
+
 const constants = {
     platforms: "platforms",
     android: {

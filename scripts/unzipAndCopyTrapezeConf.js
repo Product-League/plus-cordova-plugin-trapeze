@@ -1,7 +1,7 @@
 "use strict";
 
-let path = require('path');
-let AdmZip = require("adm-zip");
+const path = require('path');
+const AdmZip = require("adm-zip");
 
 const utils = require("./utils/utils");
 
